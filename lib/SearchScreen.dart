@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:MediChat/model/MedData.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flappy_search_bar/flappy_search_bar.dart';
 
 class SearchScreen extends StatefulWidget {
   @override
@@ -15,27 +16,22 @@ class _SearchScreenState extends State<SearchScreen> {
   var firebaseDB=Firestore.instance.collection('Medico').snapshots();
   @override
   Widget build(BuildContext context) {
+    SearchBarController _controller;
     return Scaffold(
       body: StreamBuilder(
         stream: firebaseDB,
         builder: (context,snapshot){
-          return ListView.builder(
-            itemCount: 5,
-              itemBuilder:(context,int index){
-                return Text(snapshot.data.documents[index]['name']);
-              }
+          return Container(
+            child: SearchBar(
+              hintText: "Enter Disease",
+              onSearch: ,
+
+            ),
           );
         },
 
       )
     );
   }
-}
-
-Future <Diseases> FetchDiseaseList() async{
-  print('###################################');
-  String response= await rootBundle.loadString('assets/data/MedData.json');
-  print(response);
-  return Diseases.fromJson(json.decode(response));
 }
 
