@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "487527971568",
+    "firebase_url": "https://medico-1695c.firebaseio.com",
+    "project_id": "medico-1695c",
+    "storage_bucket": "medico-1695c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:487527971568:android:da8528ead2dec15abce035",
+        "android_client_info": {
+          "package_name": "com.amimolab.MediChat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "487527971568-f5sanltsmuldpaq9l1sf0ce60du52t1b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5lItJ-40nbumePas5Y8k7yA6grLXWSpQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "487527971568-f5sanltsmuldpaq9l1sf0ce60du52t1b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

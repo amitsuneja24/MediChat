@@ -3,6 +3,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:MediChat/model/MedData.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class SearchScreen extends StatefulWidget {
   @override
@@ -10,27 +11,23 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
-  Future <Diseases> data;
-  @override
-  void initState() {
-    super.initState();
-    data= FetchDiseaseList();
-  }
+  //Future <Diseases> data;
+  var firebaseDB=Firestore.instance.collection('Medico').snapshots();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: FutureBuilder(
-        future: data,
-        builder:(context,AsyncSnapshot <Diseases> snapshot){
-          if(snapshot.hasData){
-            return Center(
-              child: Text(snapshot.data.diseases[0].name),
-            );
-
-          }
-          return Center(child: CircularProgressIndicator());
+      body: StreamBuilder(
+        stream: firebaseDB,
+        builder: (context,snapshot){
+          return ListView.builder(
+            itemCount: 5,
+              itemBuilder:(context,int index){
+                return Text(snapshot.data.documents[index]['name']);
+              }
+          );
         },
-      ),
+
+      )
     );
   }
 }
